@@ -1,0 +1,38 @@
+﻿<Window x:Class="RGBPicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RGBPicker"
+        mc:Ignorable="d"
+        Title="Wzornik kolorów RGB. Wykonał Damian Kamiński" Height="470" Width="800"
+        Background="Cornsilk">
+    <Grid>
+        <StackPanel Margin="20">
+            <Rectangle Name="rgbRectangle" Height="100" Margin="0 0 0 30"/>
+            <Label Content="Dobierz kolor suwakami i zapisz przyciskiem"/>
+            
+            <DockPanel Margin="0 10 0 10">
+                <Label Content="R" DockPanel.Dock="Left"/>
+                <Label Content="{Binding Value, ElementName=redSlider}" DockPanel.Dock="Right" Width="30"/>
+                <Slider VerticalAlignment="Center" IsSnapToTickEnabled="True" TickFrequency="1" Margin="10 0 10 0" Name="redSlider" Maximum="255" Minimum="0" Value="255" ValueChanged="RGBSliders_ValueChanged"/>
+            </DockPanel>
+
+            <DockPanel Margin="0 10 0 10">
+                <Label Content="G" DockPanel.Dock="Left"/>
+                <Label Content="{Binding Value, ElementName=greenSlider}" DockPanel.Dock="Right" Width="30"/>
+                <Slider VerticalAlignment="Center" IsSnapToTickEnabled="True" TickFrequency="1" Margin="10 0 10 0" Name="greenSlider" Maximum="255" Minimum="0" Value="255" ValueChanged="RGBSliders_ValueChanged"/>
+            </DockPanel>
+
+            <DockPanel Margin="0 10 0 10">
+                <Label Content="B" DockPanel.Dock="Left"/>
+                <Label Content="{Binding Value, ElementName=blueSlider}" DockPanel.Dock="Right" Width="30"/>
+                <Slider VerticalAlignment="Center" IsSnapToTickEnabled="True" TickFrequency="1" Margin="10 0 10 0" Name="blueSlider" Maximum="255" Minimum="0" Value="255" ValueChanged="RGBSliders_ValueChanged"/>
+            </DockPanel>
+
+            <Button Background="Peru" Width="200" Height="30" Content="Pobierz" Margin="0 0 0 30" Click="Button_Click"/>
+
+            <Label Name="savedRGB" HorizontalAlignment="Center" Width="200" Height="30" Background="White"/>
+        </StackPanel>
+    </Grid>
+</Window>
